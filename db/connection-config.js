@@ -1,5 +1,5 @@
 const url = require('url');
-const uri = process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist";
+const uri = process.env.MONGODB_URI || "mongodb://heroku_kj4w0glk:ejg4adds0him98d5omirt18h77@ds229118.mlab.com:29118/heroku_kj4w0glk/bshomework";
 
 if (!uri) {
     throw new Error('\033[31mYou need to provide the connection string. ' + 'You can open "db/connection-config.js" and export it or use the "setUri" command.\033[0m');
