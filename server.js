@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const mongoose = require('mongoose');
+const db = require('./db');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -12,6 +14,20 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+app.get('/api/books', (req, res) => {
+  db.Books
+    .find()
+    .sort({date: -1})
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+  });
+  
+  app.post('/api/addbook', (req, res) => {
+    db.Books
+    .create(req.body)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+});
 
 // Send every other request to the React app
 // Define any API routes before this runs

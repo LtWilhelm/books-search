@@ -4,8 +4,8 @@ import "./App.css";
 
 import NavBar from './components/NavBar';
 import Jumbotron from './components/Jumbotron';
-import Book from "./components/Book";
 import Search from './pages/Search';
+import Saved from './pages/Saved';
 
 class App extends Component {
   render() {
@@ -13,7 +13,10 @@ class App extends Component {
       <Router>
         <NavBar location={document.location.pathname} />
         <Jumbotron />
-        <Search />
+        <Switch>
+          <Route path="/search" component={Search} />
+          <Route path="/saved" component={Saved} />
+        </Switch>
       </Router>
     );
   }

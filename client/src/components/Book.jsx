@@ -10,7 +10,12 @@ class Book extends Component {
                 <h5 className="card-title">By: {this.props.author || 'No author listed'}</h5>
                 <p className="card-text">{this.props.description}</p>
                 <a className="btn btn-secondary" target="_blank" rel="noopener noreferrer" href={this.props.link}>View Book</a>
-                {document.location.pathname === '/search' && <button className="btn btn-primary ml-1">Save Book</button>}
+                {document.location.pathname === '/search' && <button className="btn btn-primary ml-1" onClick={() => this.props.click({
+                    image: this.props.image,
+                    title: this.props.title,
+                    author: this.props.author,
+                    synopsis: this.props.description
+                })}>Save Book</button>}
             </div>
         </div>
         )
