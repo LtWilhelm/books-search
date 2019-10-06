@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import booksAPI from '../util/booksAPI';
 import Book from '../components/Book';
+import Jumbotron from '../components/Jumbotron';
 
 class Saved extends Component {
     state = {
@@ -28,7 +29,8 @@ class Saved extends Component {
             <div className="container">
             <div className="row"
             style={{
-                marginBottom: '1em'
+                marginBottom: '1em',
+                marginTop: '1em'
             }}>
                 <form>
                     <input onChange={this.handleInputChange} className="form-control" name="search" type="text" value={this.state.search} />

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Book from '../components/Book';
 import booksAPI from '../util/booksAPI';
+import Jumbotron from '../components/Jumbotron';
 
 class Search extends Component {
     state = {
@@ -45,6 +46,8 @@ class Search extends Component {
 
     render() {
         return (
+            <>
+            <Jumbotron />
             <div className="container">
                 <div className="row">
                     <form>
@@ -64,6 +67,7 @@ class Search extends Component {
                     {this.state.books && this.state.books.map(book => <Book key={book.id} image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : null} title={book.volumeInfo.title} description={book.volumeInfo.description} author={book.volumeInfo.authors && book.volumeInfo.authors.join(", ")} link={book.volumeInfo.infoLink} click={this.save} />)}
                 </div>
             </div>
+            </>
         )
     }
 }
